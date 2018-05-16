@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.hosle.framework.compoundedrecyclerview.model.CrossCategoryNameSectionItemModel" />
+
+        <variable
+            name="eventHandler"
+            type="android.view.View.OnClickListener"/>
+
+        <variable
+            name="selectedPosition"
+            type="Integer"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="@{data}"
+        android:onClick="@{(v) -> eventHandler.onClick(v)}"
+        android:padding="20dp">
+
+        <CheckBox
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:button="@null"
+            android:clickable="false"
+            android:checked="@{safeUnbox(selectedPosition) == data.index}"
+            android:text="@{data.name}"
+            android:textColor="@drawable/sel_color_txt_category_name"
+            android:textSize="15dp"
+            tools:checked="true"
+            tools:text="名称" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="2dp"
+            android:layout_below="@id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_selection_category_line"
+            android:visibility="@{safeUnbox(selectedPosition) == data.index?View.VISIBLE:View.GONE}" />
+
+    </RelativeLayout>
+</layout>

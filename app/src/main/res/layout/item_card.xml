@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.hosle.framework.compoundedrecyclerview.model.CardItemModel" />
+
+        <variable
+            name="eventHandler"
+            type="com.hosle.framework.compoundedrecyclerview.EventHandling" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> eventHandler.onItemClick(data)}"
+        android:orientation="vertical"
+        android:layout_marginLeft="@{data.index%2==0? @dimen/margin_Left:@dimen/grid_margin_mid}"
+        android:layout_marginRight="@{data.index%2==0? @dimen/grid_margin_mid:@dimen/margin_Right}"
+        android:paddingBottom="15dp">
+
+        <ImageView
+            android:id="@+id/iv_thumb"
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:scaleType="fitCenter"
+            android:src="@{data.picRes}" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_thumb"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@{data.name}"
+            android:textColor="#6E7778"
+            android:textSize="15dp"
+            tools:text="名称" />
+
+    </RelativeLayout>
+</layout>

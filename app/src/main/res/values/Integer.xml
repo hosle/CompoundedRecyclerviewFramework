@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_horizontal">15dp</dimen>
+    <dimen name="margin_Left">15dp</dimen>
+    <dimen name="margin_Right">15dp</dimen>
+    <dimen name="grid_margin_mid">5dp</dimen>
+    <dimen name="banner_indicator_width_sel">30dp</dimen>
+    <dimen name="banner_indicator_width_unsel">15dp</dimen>
+</resources>
